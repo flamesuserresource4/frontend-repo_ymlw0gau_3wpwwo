@@ -25,7 +25,15 @@ export default function Teaching() {
         </div>
         <div className="mt-10 grid md:grid-cols-3 gap-6">
           {items.map((it, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05, duration: 0.5 }} className="rounded-2xl p-6 bg-white/5 backdrop-blur-sm border border-white/10">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 28, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+              transition={{ delay: i * 0.05, duration: 0.6, ease: [0.22,1,0.36,1] }}
+              className="rounded-2xl p-6 bg-white/5 backdrop-blur-sm border border-white/10 will-change-transform"
+              whileHover={{ y: -4 }}
+            >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 via-cyan-400 to-blue-500 mb-4" />
               <h3 className="text-white font-semibold">{it.title}</h3>
               <p className="mt-2 text-slate-300/90 text-sm leading-relaxed">{it.desc}</p>

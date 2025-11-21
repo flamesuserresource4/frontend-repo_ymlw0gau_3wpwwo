@@ -33,13 +33,28 @@ export default function Work() {
 
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p, i) => (
-            <motion.a key={i} href={p.link} target="_blank" rel="noreferrer" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.5 }} className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 hover:bg-white/10 hover:border-white/20 transition">
+            <motion.a
+              key={i}
+              href={p.link}
+              target="_blank"
+              rel="noreferrer"
+              initial={{ opacity: 0, y: 26, rotateX: -6 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+              transition={{ delay: i * 0.06, duration: 0.6, ease: [0.22,1,0.36,1] }}
+              className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 hover:bg-white/10 hover:border-white/20 transition will-change-transform"
+              whileHover={{ y: -4 }}
+            >
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h3 className="text-white font-semibold group-hover:text-white/95">{p.title}</h3>
                   <p className="mt-2 text-sm text-slate-300/90">{p.description}</p>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-400 via-sky-500 to-indigo-500 opacity-80 group-hover:opacity-100 transition" />
+                <motion.div
+                  initial={false}
+                  whileHover={{ rotate: 8, scale: 1.06 }}
+                  className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-400 via-sky-500 to-indigo-500 opacity-80 group-hover:opacity-100 transition"
+                />
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
